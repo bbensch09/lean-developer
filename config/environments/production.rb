@@ -64,6 +64,22 @@ Rails.application.configure do
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   # config.action_mailer.raise_delivery_errors = false
 
+  #GMAIL CONFIG
+  config.action_mailer.default_url_options = { :host => 'stormy-temple-2489.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true #should change to false once tested on Heroku
+  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "stormy-temple-2489.herokuapp.com",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: "citizendebate16@gmail.com",
+    password: ENV["GMAIL_PASSWORD"]
+  }
+
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
   config.i18n.fallbacks = true

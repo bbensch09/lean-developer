@@ -28,7 +28,7 @@ class SnippetsController < ApplicationController
 
     respond_to do |format|
       if @snippet.save
-        puts "Ready to email #{current_user.email}"
+        puts "Ready to send snippet confirmation email."
         UserMailer.thank_you_for_snippet(@snippet).deliver_now
         format.html { redirect_to @snippet, notice: 'Snippet was successfully created.' }
         format.json { render :show, status: :created, location: @snippet }
