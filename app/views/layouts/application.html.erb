@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PAGE TITLE</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400,700,300' rel='stylesheet' type='text/css'>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="/javascripts/home_scroller.js"></script>
+  <!-- <link rel="stylesheet" href="/stylesheets/swiper.min.css">
+  <link rel="stylesheet" href="/stylesheets/swiper_config.css"> -->
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <nav class="navbar navbar-default sticky-header">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/"><span class="glyphicon glyphicon-home"></span></a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="#how-it-works">How it works<span class="sr-only">(current)</span></a></li>
+          <li><a href=#schedule>Upcoming Schedule</a></li>
+          <li><a href="#about-us">About Us</a></li>
+          <li class="active"><a href="#">Contact Us </a></li>
+          <li> <a href="#do-something" > Do Something Else</a> </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+          <li>  <a class="signed-in-nav" href=# ><%= current_user.email %></a> </li>
+          <li> <%= link_to "Log out", destroy_user_session_path, :method => :delete %></li>
+          <%else%>
+          <li> <%= link_to 'Sign up', new_user_registration_path %></li>
+          <li> <%= link_to 'Log in', new_user_session_path %></li>
+          <%end%>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+<div class="outer-bg-container">
+  <div class="bg-center">
+    <div class="bg-left"> </div>
+    <div class="bg-right"> </div>
+  </div>
+  <div class="container-fluid">
+    <div id="header-branding">
+      <img class="header-image" src="#" alt="logo banner here"/>
+    </div>
+    <% if notice || alert %>
+        <p id="notice"><%= notice %></p>
+        <p class="alert-danger"><%= alert %></p>
+    <%end%>
+    <% if flash[:success] %>
+    <div class="alert alert-success" role="alert">
+      <%= flash[:success] %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    </div>
+    <% end %>
+    <% if flash[:info] %>
+    <div class="alert alert-info" role="alert">
+      <%= flash[:info] %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    </div>
+    <% end %>
+    <% if flash[:warning] %>
+    <div class="alert alert-warning" role="alert">
+      <%= flash[:warning] %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    </div>
+    <% end %>
+    <% if flash[:danger] %>
+    <div class="alert alert-danger" role="alert">
+      <%= flash[:danger] %>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    </div>
+    <% end %>
+  <%= yield %>
+  </div>
+</div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#about">About</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#services">Terms & Conditions</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#contact">Privacy Policy</a>
+                        </li>
+                    </ul6
+                    <p class="copyright text-muted small">Copyright &copy; Rent Masters, LLC 2016. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
