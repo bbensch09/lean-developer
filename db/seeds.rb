@@ -20,13 +20,14 @@ political_affiliation_array = ['Democrat','Democrat','Republican','Republican','
       password: 'password'
     })
   Profile.create!({
+      user_id: User.last.id,
       first_name: Faker::Name.first_name,
       last_name: Faker::Name.last_name,
       city: Faker::Address.city,
-      state: Faker::Address.state_abbr
+      state: Faker::Address.state_abbr,
       age: age_array.sample,
       about_me: Faker::Hacker.say_something_smart,
-      display_name: Faker::Internet.user_name
+      display_name: Faker::Internet.user_name,
       political_affiliation: political_affiliation_array.sample
     })
 end

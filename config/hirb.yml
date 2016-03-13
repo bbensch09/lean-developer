@@ -12,4 +12,7 @@
       :fields:
         - id
         - email
-        - sign_in_count
+        - profile_bonus
+        - snippet_bonus
+        - points
+        - rank
