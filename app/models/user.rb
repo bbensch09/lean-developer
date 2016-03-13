@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable, :lockable, :timeoutable
+         :recoverable, :rememberable, :trackable, :validatable, :lockable, :timeoutable#, :confirmable
 
   def line_order
     total_user_count = User.count
