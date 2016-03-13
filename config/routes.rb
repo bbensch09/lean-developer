@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :profiles
   resources :snippets
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

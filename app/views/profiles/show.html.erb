@@ -1,0 +1,45 @@
+<div>
+  <%= image_tag @profile.avatar.url(:large), alt:"avatar-img", class:"img-responsive img-thumbnail" %>
+</div>
+<p>
+  <strong>First name:</strong>
+  <%= @profile.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @profile.last_name %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @profile.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @profile.state %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @profile.age %>
+</p>
+
+<p>
+  <strong>About me:</strong>
+  <%= @profile.about_me %>
+</p>
+
+<p>
+  <strong>Display name:</strong>
+  <%= @profile.display_name %>
+</p>
+
+<p>
+  <strong>Political affiliation:</strong>
+  <%= @profile.political_affiliation %>
+</p>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>

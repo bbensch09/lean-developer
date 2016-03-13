@@ -32,13 +32,17 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.1.0'
 end
 
+# One of the older AWS gem's was causing a compiler error...?
+# gem "aws-s3"
+# gem 'aws-sdk-v1'
+# gem 'aws-sdk', '~> 2'
 #AWS SDK's for storing images
-gem "aws-s3"
-gem 'aws-sdk-v1'
-gem 'aws-sdk', '~> 2'
+  gem 'aws-sdk', '< 2.0'
+
 #Using CKeditor as the WYSIWYG editor for potential custom formatting in-line.
 gem 'ckeditor'
 #paperclip for file upload management
+gem 'paperclip'
 
 #Omniauth for eventual FB signup, NOT YET CONFIGURED WITH DEVISE
 gem 'omniauth-facebook'
