@@ -9,7 +9,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :about_me
       t.string :display_name
       t.string :political_affiliation
-
+      t.belongs_to :user, index: true
       t.timestamps null: false
     end
   end

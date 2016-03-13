@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160313021810) do
     t.string   "about_me"
     t.string   "display_name"
     t.string   "political_affiliation"
+    t.integer  "user_id"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
     t.string   "avatar_file_name"
@@ -33,13 +34,18 @@ ActiveRecord::Schema.define(version: 20160313021810) do
     t.datetime "avatar_updated_at"
   end
 
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
+
   create_table "snippets", force: :cascade do |t|
     t.string   "email"
     t.string   "body"
     t.integer  "rating"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "snippets", ["user_id"], name: "index_snippets_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

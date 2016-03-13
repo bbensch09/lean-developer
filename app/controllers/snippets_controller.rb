@@ -25,6 +25,7 @@ class SnippetsController < ApplicationController
   # POST /snippets.json
   def create
     @snippet = Snippet.new(snippet_params)
+    @snippet.user_id = current_user.id
 
     respond_to do |format|
       if @snippet.save
@@ -71,6 +72,6 @@ class SnippetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def snippet_params
-      params.require(:snippet).permit(:email, :body, :rating)
+      params.require(:snippet).permit(:email, :body, :rating, :user_id)
     end
 end
