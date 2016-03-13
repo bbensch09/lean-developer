@@ -14,7 +14,7 @@ Snippet.delete_all
 age_array = (18...65).to_a
 political_affiliation_array = ['Democrat','Democrat','Republican','Republican','Independent']
 
-5.times do
+20.times do
   User.create!({
       email: Faker::Internet.safe_email,
       password: 'password'
