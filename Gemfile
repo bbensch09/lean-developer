@@ -23,6 +23,26 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+#Bootstrap 4 via sprockets
+gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+
+#Use Tether (http://github.hubspot.com/tether/) for absolute positioning of tool tips, etc.
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
+
+#AWS SDK's for storing images
+gem "aws-s3"
+gem 'aws-sdk-v1'
+gem 'aws-sdk', '~> 2'
+#Using CKeditor as the WYSIWYG editor for potential custom formatting in-line.
+gem 'ckeditor'
+#paperclip for file upload management
+
+#Omniauth for eventual FB signup, NOT YET CONFIGURED WITH DEVISE
+gem 'omniauth-facebook'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
