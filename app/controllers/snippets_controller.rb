@@ -37,12 +37,12 @@ class SnippetsController < ApplicationController
   def create
     @snippet = Snippet.new(snippet_params)
     @snippet.user_id = current_user.id
-    @rank = current_user.rank
+    @user = current_user
 
     respond_to do |format|
       if @snippet.save
         puts "Ready to send snippet confirmation email."
-        UserMailer.thank_you_for_snippet(@snippet).deliver_now
+        UserMailer.thank_you_for_snippet(@snippet,@user).deliver_now
         format.html { redirect_to @snippet, notice: 'Snippet was successfully created.' }
         format.json { render :show, status: :created, location: @snippet }
       else
