@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /profiles
   # GET /profiles.json
@@ -14,7 +15,12 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/new
   def new
+    puts "trying to load /profiles/new"
+    if current_user.profile
+      redirect_to "/profiles/#{current_user.id}"
+    else
     @profile = Profile.new
+    end
   end
 
   # GET /profiles/1/edit
@@ -25,15 +31,21 @@ class ProfilesController < ApplicationController
   # POST /profiles.json
   def create
     @profile = Profile.new(profile_params)
-    @profile.user_id = current_user.id
-
-    respond_to do |format|
-      if @profile.save
-        format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
-        format.json { render :show, status: :created, location: @profile }
-      else
-        format.html { render :new }
-        format.json { render json: @profile.errors, status: :unprocessable_entity }
+    if current_user.profile
+      #ERROR: kick user back to their profile page & tell them they can only create one profile.
+      respond_to do |format|
+        format.html { redirect_to "/profiles/#{current_user.id}", notice: 'Cannot create more than one profile. Your profile already exists.' }
+      end
+    else
+      @profile.user_id = current_user.id
+      respond_to do |format|
+        if @profile.save
+          format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
+          format.json { render :show, status: :created, location: @profile }
+        else
+          format.html { render :new }
+          format.json { render json: @profile.errors, status: :unprocessable_entity }
+        end
       end
     end
   end

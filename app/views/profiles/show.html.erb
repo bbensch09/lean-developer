@@ -2,6 +2,18 @@
   <%= image_tag @profile.avatar.url(:large), alt:"avatar-img", class:"img-responsive img-thumbnail" %>
 </div>
 <p>
+  <strong>Your Display name:</strong>
+  <%= @profile.display_name %>
+</p>
+<p>
+  <strong>Wait List Ranking:</strong>
+  <%= @profile.user.rank %>
+</p>
+<p>
+  <strong>Accumulated Points:</strong>
+  <%= @profile.user.points %>
+</p>
+<p>
   <strong>First name:</strong>
   <%= @profile.first_name %>
 </p>
@@ -36,14 +48,8 @@
 </p>
 
 <p>
-  <strong>Display name:</strong>
-  <%= @profile.display_name %>
-</p>
-
-<p>
   <strong>Political affiliation:</strong>
   <%= @profile.political_affiliation %>
 </p>
 
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>

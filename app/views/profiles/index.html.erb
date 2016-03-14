@@ -1,4 +1,4 @@
-<h1>Listing Profiles</h1>
+<h1>Current Wait-list Order</h1>
 
 <table>
   <thead>
@@ -30,14 +30,17 @@
         <td><%= profile.state %></td>
         <td><%= profile.age %></td>
         <td><%= profile.political_affiliation %></td>
+        <% if current_user && current_user.email == "bbensch@gmail.com" %>
         <td><%= link_to 'Show', profile %></td>
         <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
         <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<% if current_user && current_user.email == "bbensch@gmail.com" %>
 <%= link_to 'New Profile', new_profile_path %>
+<% end %>

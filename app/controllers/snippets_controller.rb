@@ -1,10 +1,21 @@
 class SnippetsController < ApplicationController
   before_action :set_snippet, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /snippets
   # GET /snippets.json
   def index
-    @snippets = Snippet.all
+    @snippets = Snippet.where(user_id:current_user.id)
+  end
+
+  def admin_index
+    if current_user.email == "bbensch@gmail.com"
+      @snippets = Snippet.all
+      render 'index'
+    else
+      @snippets = Snippet.where(user_id:current_user.id)
+      render 'index'
+    end
   end
 
   # GET /snippets/1
@@ -26,6 +37,7 @@ class SnippetsController < ApplicationController
   def create
     @snippet = Snippet.new(snippet_params)
     @snippet.user_id = current_user.id
+    @rank = current_user.rank
 
     respond_to do |format|
       if @snippet.save
@@ -72,6 +84,6 @@ class SnippetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def snippet_params
-      params.require(:snippet).permit(:email, :body, :rating, :user_id)
+      params.require(:snippet).permit(:body, :rating, :user_id)
     end
 end

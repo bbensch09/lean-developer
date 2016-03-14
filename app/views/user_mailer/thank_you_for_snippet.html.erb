@@ -1,16 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
-    <h1>Thanks again for signing up for Citizen Debate!</h1>
-    <p>
-      We have received your snippet, and have bumped you closer to the front of the line. There are now only XX people in front of you.
-    </p>
-    <p>
-      In case you forgot, your username is: <%= @snippet.email %>.<br>
-    </p>
-    <p>Thanks for joining and have a great day!</p>
-  </body>
+<head>
+  <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+</head>
+<body>
+  <h1>Thanks for sharing your feedback and excitement about Citizen Debate!</h1>
+  <p>
+  We have received your feedback below, and have bumped you closer to the front of the line. You are now number <%= @rank %> on the wait list.
+  </p>
+  <h1> Your Feedback </h1>
+  <p>
+    <strong>Why you want to use PRODUCT:</strong>
+    <br>
+    <%= @snippet.body %>
+  </p>
+  <p>
+    <strong>How likely are you to recommend PRODUCT to a friend?</strong>
+    <br>
+    <%= @snippet.rating %>
+  </p>
+
+  <p>Thanks for joining and have a great day!</p>
+</body>
 </html>

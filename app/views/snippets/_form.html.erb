@@ -12,18 +12,36 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <h2> Why are you excited to use PRODUCT?:</h2>
+    <%= f.text_area :body, size:"100x4" %>
   </div>
   <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_field :body %>
+    <h2> How likely are you to recommend PRODUCT to a friend?</h2>
+    <%= f.radio_button :rating, 1  %>
+    <%= label_tag(:one, "1 - Unlikely", :class=> "nps") %>
+    <%= f.radio_button :rating, 2  %>
+    <%= label_tag(:two, "2", :class=> "nps") %>
+    <%= f.radio_button :rating, 3  %>
+    <%= label_tag(:three, "3", :class=> "nps") %>
+    <%= f.radio_button :rating, 4  %>
+    <%= label_tag(:two, "4", :class=> "nps") %>
+    <%= f.radio_button :rating, 5  %>
+    <%= label_tag(:three, "5", :class=> "nps") %>
+    <%= f.radio_button :rating, 6  %>
+    <%= label_tag(:two, "6", :class=> "nps") %>
+    <%= f.radio_button :rating, 7  %>
+    <%= label_tag(:three, "7", :class=> "nps") %>
+    <%= f.radio_button :rating, 8  %>
+    <%= label_tag(:two, "8", :class=> "nps") %>
+    <%= f.radio_button :rating, 9  %>
+    <%= label_tag(:three, "9", :class=> "nps") %>
+    <%= f.radio_button :rating, 10 %>
+    <%= label_tag(:ten, "10 - Most likely", :class=> "nps") %>
   </div>
-  <div class="field">
-    <%= f.label :rating %><br>
-    <%= f.number_field :rating %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+

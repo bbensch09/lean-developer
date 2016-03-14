@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   def profile_bonus
     profile_bonus = 0
-    if self.profile.about_me.length > 75
+    if self.profile && self.profile.about_me.length > 75
       profile_bonus = 10
     end
     profile_bonus
@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 
   def snippet_bonus
     snippet_bonus = 0
-    if self.snippets.count > 0
+    if self.snippets && self.snippets.count > 0
       snippet_bonus = 5
     end
     snippet_bonus
