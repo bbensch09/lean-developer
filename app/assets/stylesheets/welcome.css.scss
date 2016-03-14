@@ -145,3 +145,211 @@ footer {
 p.copyright {
     margin: 15px 0 0;
 }
+/* PRicing TAble Features
+================================== */
+.pricing_overlay {
+    position: relative;
+}
+
+.pricing_overlay:before {
+    content: "";
+    background: rgba(0,0,0,.1);
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+
+#pricing_table {
+    background: url("../images/bg/1.jpg")fixed center center;
+    background-size: cover;
+}
+
+.dark_bg {
+    position: relative;
+}
+
+.plan {
+    font-weight: 700!important;
+}
+
+.price {
+    font-weight: 500!important;
+}
+
+.single_table {
+    background: #FFFFFF;
+    float: left;
+    -webkit-box-shadow: 2px 2px 9px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 2px 2px 9px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 9px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    left: 10%;
+    /*right: 5%;*/
+    position: relative;
+}
+@media(min-width:300px) {
+
+.single_table {
+    background: #FFFFFF;
+    float: left;
+    -webkit-box-shadow: 2px 2px 9px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 2px 2px 9px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 9px rgba(0, 0, 0, 0.3);
+    width: 300px;
+    left: -70px;
+    margin: 50px auto;
+    position: relative;
+}
+
+}
+
+@media(min-width:900px) {
+
+.single_table {
+   background: #FFFFFF;
+    float: left;
+    -webkit-box-shadow: 2px 2px 9px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 2px 2px 9px rgba(0, 0, 0, 0.3);
+    box-shadow: 2px 2px 9px rgba(0, 0, 0, 0.3);
+    width: 372px;
+    margin: 50px auto;
+    position: relative;
+}
+
+}
+
+.single_table ul li {
+    padding: 15px 30px;
+    border-bottom: 1px solid #e6e6e6;
+    color: #434343;
+    font-size: 18px;
+}
+
+.single_table ul li:first-child,
+.single_table ul li:last-child {
+    border-bottom: 0px;
+}
+
+.single_table ul li.plan {
+    color: #006caf;
+    font-size: 25px;
+    padding: 25px 0px;
+}
+
+.single_table ul li.plan span {
+    font-size: 14px;
+}
+
+.single_table ul li.price {
+    font-size: 50px;
+    font-family: "Raleway";
+    padding: 35px 0px;
+}
+
+.single_table ul li.price span {
+    font-size: 30px;
+}
+
+.single_table ul li.price_button .btn-default {
+    background: #444444;
+    border-radius: 0px;
+    color: #fff;
+    padding: 10px 18px;
+}
+
+/* Grey Bg */
+.grey_bg {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    transform: scale(1.1);
+    z-index: 2;
+}
+
+.grey_bg ul li.plan {
+    padding: 45px 0px !important;
+}
+
+.grey_bg .btn-slide {
+    color: #fff;
+}
+
+/* Black Bg */
+.dark_bg ul li.plan {
+    color: #006caf;
+    font-size: 2em;
+    padding: 25px 0px;
+}
+/*.dark_bg ul li.price {
+    color: #434343;
+}
+.dark_bg ul li.price_button {
+    background: #F6F6F6;
+}
+.dark_bg ul li.price_button .btn-default {
+    background: #434343;
+}*/
+.single_table ul li.plan {
+    font-size: 2em;
+    color: #006caf;
+    position: relative;
+    z-index: 1;
+}
+
+.single_table .plan_wrapper {
+    /*background: none repeat scroll 0 0 #434343;*/
+    content: "";
+    height: 70px;
+    left: 40%;
+    position: absolute;
+    top: 40px;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    width: 70px;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.grey_bg .plan_wrapper {
+    content: "";
+    height: 70px;
+    left: 40%;
+    position: absolute;
+    top: 75px;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    width: 70px;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.dark_bg .plan_wrapper {
+    /*background:  #434343!important;*/
+    content: "";
+    height: 70px;
+    left: 41%;
+    top: 38px;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    width: 70px;
+    z-index: 1;
+    overflow: hidden;
+    position: absolute;
+}
+
+.single_table ul {
+    list-style: none !important;
+}
+
+.price_button .btn-main {
+    margin: 0px!important;
+}
